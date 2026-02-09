@@ -1,0 +1,43 @@
+@tailwind base;
+
+@layer base {
+  p {
+    @apply mb-2;
+  }
+  h2 {
+    @apply text-xl text-blue-800 mt-4 mb-2 font-light
+  }
+  em {
+    @apply font-bold not-italic
+  }
+  ul {
+    @apply list-disc list-outside mb-2 ml-7
+  }
+  ol {
+    @apply list-outside mb-2 list-decimal ml-7
+  }
+  a {
+    @apply hover:text-blue-900 transition-all text-blue-800
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(30, 30, 30);
+}
