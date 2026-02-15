@@ -176,8 +176,8 @@ export const getStaticPagesContent = (slug) => `query staticPagesContent {
 }`;
 
 export const getPriceList = `query getPrices {
-  currentPriceLists(first: 100) {
-    priceList(first: 300) {
+  currentPriceLists2(first: 100) {
+    priceList2(first: 300) {
       id
       name
       price
