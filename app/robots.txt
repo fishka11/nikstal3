@@ -1,2 +1,13 @@
+# robots.txt dla NikStal - Skup złomu
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://www.nikstal.com.pl/sitemap.xml
+
+# Blokuje złe boty (opcjonalne)
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10

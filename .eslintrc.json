@@ -1,3 +1,16 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals", "prettier"],
+  "rules": {
+    // Wyłącz irytujące reguły (opcjonalnie)
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-img-element": "warn",
+    
+    // Ostrzeżenia zamiast błędów
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    
+    // Wymusza adobre praktyki
+    "react/jsx-key": "error",
+    "react/prop-types": "off" // Jeśli nie używasz PropTypes
+  }
 }
+

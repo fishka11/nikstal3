@@ -1,83 +1,118 @@
-import ReactMarkdown from 'react-markdown';
-import { v4 as uuidv4 } from 'uuid';
-import CardWithIcon from './components/cardWithIcon';
-import CardWithPic from './components/cardWithPic';
-import Cover from './components/cover';
-import getData from './lib/fetchAPI';
-import { getStaticPagesContent } from './lib/queries';
+import ReactMarkdown from "react-markdown";
+import { notFound } from "next/navigation";
+import { v4 as uuidv4 } from "uuid";
+import CardWithIcon from "./components/cardWithIcon";
+import CardWithPic from "./components/cardWithPic";
+import Cover from "./components/cover";
+import getData from "./lib/fetchAPI";
+import { getStaticPagesContent } from "./lib/queries";
 
-export const revalidate = 0;
+// export const revalidate = 3600;
+
+// Pomocnicza funkcja do pobierania danych
+async function getPageData() {
+  try {
+    const data = await getData(getStaticPagesContent("/"));
+    return data?.staticPages?.[0] || null;
+  } catch (error) {
+    console.error("Error fetching page data:", error);
+    return null;
+  }
+}
 
 export async function generateMetadata() {
-  const data = await getData(getStaticPagesContent('/'));
-  const metaData = data.staticPages[0];
-  if (metaData.seo) {
+  try {
+    const content = await getPageData();
+    if (!content?.seo) {
+      return {}; // Next.js użyje domyślnych meta z layout.js
+    }
     return {
-      title: metaData.seo?.title,
-      description: metaData.seo?.description,
-      keywords: metaData.seo?.keywords,
+      title: content.seo.title,
+      description: content.seo.description,
+      keywords: content.seo.keywords,
     };
+  } catch (error) {
+    console.error("Error generating metadata:", error);
+    return {};
   }
 }
 
 export default async function Home() {
-  const data = await getData(getStaticPagesContent('/'));
-  const content = data.staticPages[0];
-  return (
-    <>
-      <Cover slug={'/'} />
-      <div className="bg-white pb-14 pt-4 md:pt-14">
-        <div className="container max-w-screen-lg">
-          <h1 className="mb-4 mt-4 text-left text-xl font-light text-blue-900 md:mb-8 md:mt-0 md:text-3xl">
-            {content?.title}
-          </h1>
-          <ReactMarkdown className="text-justify">
-            {content?.texts[0]?.text?.markdown}
-          </ReactMarkdown>
-        </div>
-        <div className="container mt-14 flex max-w-screen-2xl flex-wrap justify-center">
-          {content?.cardsWithIcon.map(card => {
-            return (
-              <CardWithIcon
-                key={card?.id || uuidv4()}
-                icon={card?.fontAwesomeIconName}
-                title={card?.subtitle}
-                texts={card?.texts}
-              />
-            );
-          })}
-        </div>
-      </div>
-      <div className="linear-gradient(to bottom, rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)) bg-cover bg-fixed bg-center bg-no-repeat py-20">
-        <div className="container max-w-screen-lg p-12">
-          <h2 className="mb-6 text-justify text-2xl font-light text-slate-200">
-            {content?.texts[1]?.subtitle}
-          </h2>
-          <ReactMarkdown className="text-justify text-white [&_a]:text-white [&_li]:list-none">
-            {content?.texts[1]?.text?.markdown}
-          </ReactMarkdown>
-        </div>
-      </div>
-
-      <div className="bg-white pt-20">
-        <div className="container flex max-w-screen-2xl flex-wrap justify-center">
-          {content?.cardsWithPic.map(card => {
-            return (
-              <CardWithPic
-                key={card?.id || uuidv4()}
-                pic={card?.picture}
-                title={card?.subtitle}
-                texts={card?.texts}
-              />
-            );
-          })}
-        </div>
-        <div className="container max-w-screen-lg p-12">
-          <ReactMarkdown className="text-justify [&_li]:list-none">
-            {content?.texts[2]?.text?.markdown}
-          </ReactMarkdown>
-        </div>
-      </div>
-    </>
-  );
+  try {
+    const content = await getPageData();
+    if (!content) {
+      notFound();
+    }
+    // Destrukturyzacja dla czytelności
+    const { title, texts, cardsWithIcon, cardsWithPic } = content;
+    return (
+      <>
+        <Cover slug="/" />
+        <section className="bg-white pt-4 pb-14 md:pt-14">
+          <div className="container max-w-5xl">
+            <h1 className="mt-4 mb-4 text-left text-xl font-light text-blue-900 md:mt-0 md:mb-8 md:text-justify md:text-3xl">
+              {title}
+            </h1>
+            {texts?.[0]?.text?.markdown && (
+              <ReactMarkdown className="markdown-content text-left md:text-justify">
+                {texts[0].text.markdown}
+              </ReactMarkdown>
+            )}
+          </div>
+          {cardsWithIcon?.length > 0 && (
+            <div className="container mt-14 flex max-w-screen-2xl flex-wrap justify-center">
+              {cardsWithIcon.map((card) => (
+                <CardWithIcon
+                  key={card.id}
+                  icon={card.fontAwesomeIconName}
+                  title={card.subtitle}
+                  texts={card.texts}
+                />
+              ))}
+            </div>
+          )}
+        </section>
+        <section className="py-20">
+          <div className="container max-w-5xl">
+            {texts?.[1]?.subtitle && (
+              <h2 className="mb-6 text-left text-2xl font-light text-slate-200 md:text-justify">
+                {texts[1].subtitle}
+              </h2>
+            )}
+            {texts?.[1]?.text?.markdown && (
+              <ReactMarkdown className="markdown-content text-left text-white md:text-justify [&_a]:text-white [&_li]:list-none">
+                {texts[1].text.markdown}
+              </ReactMarkdown>
+            )}
+          </div>
+        </section>
+        <section className="bg-white pt-20">
+          {cardsWithPic?.length > 0 && (
+            <div className="container flex max-w-screen-2xl flex-wrap justify-center">
+              {cardsWithPic.map((card) => (
+                <CardWithPic
+                  key={card?.id}
+                  pic={card?.picture}
+                  title={card?.subtitle}
+                  texts={card?.texts}
+                />
+              ))}
+            </div>
+          )}
+        </section>
+        <section className="bg-white py-10">
+          {texts?.[2]?.text?.markdown && (
+            <div className="container max-w-5xl">
+              <ReactMarkdown className="markdown-content text-left md:text-justify [&_li]:list-none">
+                {texts?.[2]?.text?.markdown}
+              </ReactMarkdown>
+            </div>
+          )}
+        </section>
+      </>
+    );
+  } catch (error) {
+    console.error("Error loading home page:", error);
+    notFound();
+  }
 }

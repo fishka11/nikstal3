@@ -1,2 +1,162 @@
-<?xml version='1.0' encoding='utf-8'?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://www.nikstal.com.pl/</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.nikstal.com.pl/skup-zlomu-sosnowiec</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.nikstal.com.pl/skup-zlomu-dabrowa-gornicza</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.nikstal.com.pl/skup-zlomu-tychy</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.nikstal.com.pl/skup-zlomu-mikolow</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.nikstal.com.pl/skup-zlomu-katowice</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.nikstal.com.pl/skup-zlomu-jaworzno</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.nikstal.com.pl/skup-zlomu-myslowice</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.nikstal.com.pl/skup-zlomu-bedzin</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.nikstal.com.pl/skup-zlomu-czeladz</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.nikstal.com.pl/skup-zlomu-zawiercie</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.nikstal.com.pl/skup-zlomu-siemianowice-slaskie</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.nikstal.com.pl/skup-zlomu-ruda-slaska</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.nikstal.com.pl/skup-zlomu-chorzow</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.nikstal.com.pl/skup-miedzi</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.nikstal.com.pl/skup-aluminium</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.nikstal.com.pl/skup-cynku</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.nikstal.com.pl/skup-olowiu</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.nikstal.com.pl/skup-kabli-miedzianych</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.nikstal.com.pl/skup-kabli-aluminiowych</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.nikstal.com.pl/skup-metali-kolorowych-tychy</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.nikstal.com.pl/skup-surowcow-wtornych-tychy</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.nikstal.com.pl/skup-metali-kolorowych-dabrowa-gornicza</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.nikstal.com.pl/skup-metali-kolorowych-katowice</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.nikstal.com.pl/skup-surowcow-wtornych-katowice</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.nikstal.com.pl/skup-metali-kolorowych-mikolow</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.nikstal.com.pl/skup-surowcow-wtornych-mikolow</loc><lastmod>2025-07-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url></urlset>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://www.nikstal.com.pl/</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/cennik-skupu-zlomu</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/kontakt-skup-zlomu</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/skup-zlomu-katowice</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/skup-zlomu-myslowice</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/skup-zlomu-sosnowiec</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/skup-zlomu-dabrowa-gornicza</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/skup-zlomu-jaworzno</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/skup-zlomu-tychy</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/skup-zlomu-chorzow</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/skup-zlomu-ruda-slaska</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/skup-zlomu-siemianowice-slaskie</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/skup-zlomu-bedzin</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/skup-zlomu-czeladz</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/skup-zlomu-mikolow</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/skup-zlomu-zawiercie</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/skup-zlomu-bytom</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/skup-zlomu-zabrze</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/skup-zlomu-gliwice</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/skup-zlomu-piekary-slaskie</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/skup-zlomu-swietochlowice</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/skup-zlomu-chrzanow</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/skup-miedzi</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/skup-aluminium</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/skup-cynku</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/skup-olowiu</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/skup-kabli-miedzianych</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/skup-kabli-aluminiowych</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/rodo</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.nikstal.com.pl/polityka-prywatnosci</loc>
+  <lastmod>2026-02-10T10:29:49+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+
+</urlset>

@@ -52,8 +52,8 @@ export const getHeaderContent = `query headerContent {
   }
 }`;
 
-export const getStaticPagesContent = slug => `query staticPagesContent {
-  staticPages(where: {menuLink: {slug: ${slug === '/' ? null : `"${slug}"`}}}) {
+export const getStaticPagesContent = (slug) => `query staticPagesContent {
+  staticPages(where: {menuLink: {slug: ${slug === "/" ? null : `"${slug}"`}}}) {
     ctaButtons {
       id
       text
@@ -265,8 +265,8 @@ export const getPagesContent = `query getPagesContent {
   }
 }`;
 
-export const getDynamicPagesContent = slug => `query dynamicPagesContent {
-  pages(where: {menuLink: {slug: ${slug === '/' ? null : `"${slug}"`}}}) {
+export const getDynamicPagesContent = (slug) => `query dynamicPagesContent {
+  pages(where: {menuLink: {slug: ${slug === "/" ? null : `"${slug}"`}}}) {
     header {
       id
       picture {

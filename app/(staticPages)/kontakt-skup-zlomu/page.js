@@ -1,42 +1,75 @@
-import getData from '../../lib/fetchAPI';
-import { getStaticPagesContent } from '../../lib/queries';
+import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
+import getData from "../../lib/fetchAPI";
+import { getStaticPagesContent } from "../../lib/queries";
+import StaticPageHeader from "../../components/staticPagesHeader";
 import FirmData from "../../components/firmData";
 import CardWithIcon from "../../components/cardWithIcon";
 import GoogleMap from "../../components/googleMap";
 import OpeningHours from "../../components/openingHours";
 
-export async function generateMetadata() {
-  const data = await getData(getStaticPagesContent('kontakt-skup-zlomu'));
-  const metaData = data.staticPages[0];
-  if (metaData.seo) {
-    return {
-      title: metaData.seo?.title,
-      description: metaData.seo?.description,
-      keywords: metaData.seo?.keywords,
-    };
+const CONTACT_SLUG = "kontakt-skup-zlomu";
+
+// Pomocnicza funkcja do pobierania danych
+async function getPageData() {
+  try {
+    const data = await getData(getStaticPagesContent(CONTACT_SLUG));
+    return data?.staticPages?.[0] || null;
+  } catch (error) {
+    console.error("Error fetching price list page:", error);
+    return null;
   }
 }
 
+export async function generateMetadata() {
+  const content = await getPageData();
+
+  if (!content?.seo) {
+    return {
+      title: content?.title || "Kontakt - skupu złomu",
+      description: content?.subtitle || "",
+    };
+  }
+
+  return {
+    title: content.seo.title,
+    description: content.seo.description,
+    keywords: content.seo.keywords,
+  };
+}
+
 export default async function ContactPage() {
-  const data = await getData(getStaticPagesContent('kontakt-skup-zlomu'));
-  const content = data.staticPages[0];
-    const style = {
+  const content = await getPageData();
+
+  if (!content) {
+    notFound();
+  }
+
+  const style = {
     container: "mb-8",
-    titleContainer: "container mb-4 mt-8 flex max-w-screen-xl flex-col items-center",
+    titleContainer:
+      "container mb-4 mt-8 flex max-w-screen-xl flex-col items-center",
     title: "text-2xl font-light text-blue-800",
-    hoursListContainer: "container mb-14 flex max-w-screen-xl flex-col items-center",
+    hoursListContainer:
+      "container mb-14 flex max-w-screen-xl flex-col items-center",
     row: "text-xl font-light",
     rowBold: "font-bold",
-  }
+  };
+
+  // Wybór odpowiednie źródło markdown
+  const markdownContent =
+    content.texts?.[0]?.text?.markdown ||
+    content.markdownTexts?.[0]?.markdownText ||
+    "";
 
   return (
     <>
-      <div className="container mb-4 mt-4 max-w-screen-lg pt-2 md:mb-8 md:mt-0 md:pt-12">
-        <h1 className="mb-2 text-center text-2xl font-light text-blue-900 md:text-3xl">
+      <StaticPageHeader slug={CONTACT_SLUG} />
+      <div className="container max-w-5xl pt-6 sm:pt-10">
+        <h1 className="py-2 text-2xl text-center font-light text-blue-900 md:text-3xl">
           {content?.title}
         </h1>
-        <p className="mb-2 text-center text-xl font-light md:mb-8">
+        <p className="py-4 text-xl text-center font-light md:py-6">
           {content?.subtitle}
         </p>
       </div>
@@ -54,14 +87,14 @@ export default async function ContactPage() {
       </div>
       <FirmData />
       <OpeningHours style={style} />
-      <div className="container max-w-screen-lg p-2 md:pb-8 md:pt-0">
-        <h2 className="mb-2 text-2xl font-light text-blue-800">
-          {content?.texts[0]?.subtitle}
-        </h2>
-        <ReactMarkdown>
-          {content?.texts[0]
-            ? content?.texts[0]?.text?.markdown
-            : content?.markdownTexts[0]?.markdownText}
+      <div className="container max-w-5xl">
+        {content?.texts[0]?.subtitle && (
+          <h2 className="text-2xl font-light text-blue-800">
+            {content.texts[0].subtitle}
+          </h2>
+        )}
+        <ReactMarkdown className="markdown-content">
+          {markdownContent}
         </ReactMarkdown>
       </div>
       <GoogleMap />

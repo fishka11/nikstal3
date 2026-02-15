@@ -1,0 +1,12 @@
+# .prettierignore
+.next
+node_modules
+out
+build
+dist
+.cache
+public
+*.md
+package-lock.json
+pnpm-lock.yaml
+yarn.lock

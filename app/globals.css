@@ -1,43 +1,50 @@
-@tailwind base;
+@import 'tailwindcss';
 
 @layer base {
+  /* Container padding per breakpoint - jeśli potrzebne */
+  .container {
+    @apply mx-auto px-4 sm:px-8 lg:px-16 xl:px-20 2xl:px-24;
+  }
+
+  /* Typography */
   p {
     @apply mb-2;
   }
+
   h2 {
-    @apply text-xl text-blue-800 mt-4 mb-2 font-light
+    @apply mt-4 mb-2 text-xl font-light text-blue-800 dark:text-blue-400;
   }
+
   em {
-    @apply font-bold not-italic
+    @apply font-bold not-italic;
   }
+
+  /* Lists */
   ul {
-    @apply list-disc list-outside mb-2 ml-7
+    @apply mb-2 ml-7 list-outside list-disc;
   }
+
   ol {
-    @apply list-outside mb-2 list-decimal ml-7
+    @apply mb-2 ml-7 list-outside list-decimal;
   }
-  a {
-    @apply hover:text-blue-900 transition-all text-blue-800
+
+  /* Tylko dla ReactMarkdown */
+  .markdown-content a {
+    @apply text-blue-800 transition-colors hover:text-blue-900;
   }
-}
 
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  /* Body */
+  body {
+    @apply bg-white text-gray-800 antialiased dark:bg-slate-900 dark:text-gray-100;
   }
-}
 
-body {
-  color: rgb(30, 30, 30);
+  /* Smooth scroll */
+  html {
+    @apply scroll-smooth;
+  }
+
+  /* Focus outline */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-blue-500;
+  }
 }

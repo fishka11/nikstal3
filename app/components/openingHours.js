@@ -1,58 +1,64 @@
-import getData from '../lib/fetchAPI';
-import { getFirmData } from '../lib/queries';
-import { daysOfWeekPl } from '../lib/variables';
-import { v4 as uuidv4 } from 'uuid';
+import getData from "../lib/fetchAPI";
+import { getFirmData } from "../lib/queries";
+import { daysOfWeekPl } from "../lib/variables";
+import { v4 as uuidv4 } from "uuid";
+
+// Pomocnicza funkcja do tłumaczenia dni
+function translateDay(day) {
+  if (!day) return "";
+
+  const translation = daysOfWeekPl.find(
+    (item) => item.en.toLowerCase() === day.toLowerCase(),
+  );
+
+  return translation?.shortPl || day;
+}
 
 export default async function OpeningHours({ style }) {
-  const data = await getData(getFirmData);
-  const firmData = await data.firmsData[0];
+  try {
+    const data = await getData(getFirmData);
+    const firmData = data?.firmsData?.[0];
 
-  console.log(firmData.workingHours);
-
-  const daysOfWeekToShortPl = day => {
-    if (day) {
-      const pl = daysOfWeekPl.find(
-        item => item.en.toLowerCase() === day.toLowerCase()
-      );
-      return pl.shortPl;
+    if (!firmData?.workingHours || firmData.workingHours.length === 0) {
+      return null; // Nie pokazuj komponentu jeśli brak danych
     }
-  };
 
-  const workingHours =
-    firmData &&
-    firmData.workingHours.length &&
-    firmData.workingHours.map(item => {
-      const day = item.day && {
-        id: item.id || uuidv4(),
-        day: item.day && daysOfWeekToShortPl(item.day),
-        hours: `${item.openingHour} - ${item.closingHour}`,
+    // Przetwórz godziny otwarcia
+    const workingHours = firmData.workingHours
+      .filter((item) => item?.day) // Filtruj niepełne dane
+      .map((item) => ({
+        id: item.id,
+        day: translateDay(item.day),
+        hours: item.closed
+          ? "Zamknięte"
+          : `${item.openingHour} - ${item.closingHour}`,
         closed: item.closed,
-      };
-      if (day) {
-        return day;
-      }
-    });
+      }));
 
-  return (
-    <div className={style.container}>
-      <div className={style.titleContainer}>
-        <h2 className={style.title}>Godziny otwarcia</h2>
+    if (workingHours.length === 0) {
+      return null;
+    }
+
+    return (
+      <div className={style.container}>
+        <div className={style.titleContainer}>
+          <h2 className={style.title}>Godziny otwarcia</h2>
+        </div>
+
+        <div className={style.hoursListContainer}>
+          {workingHours.map((item) => (
+            <p key={item.id} className="text-base font-light">
+              {item.day}:{" "}
+              <span className={item.closed ? "font-light" : "font-normal"}>
+                {item.hours}
+              </span>
+            </p>
+          ))}
+        </div>
       </div>
-      <div className={style.hoursListContainer}>
-        {workingHours.length &&
-          workingHours.map(item => {
-            return (
-              item && (
-                <p className={style.row} key={item.id}>
-                  {item?.day}:{' '}
-                  <span className={style.rowBold}>
-                    {item.closed ? 'Zamknięte' : item?.hours}
-                  </span>
-                </p>
-              )
-            );
-          })}
-      </div>
-    </div>
-  );
+    );
+  } catch (error) {
+    console.error("Error loading opening hours:", error);
+    return null;
+  }
 }
