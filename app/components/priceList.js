@@ -12,7 +12,6 @@ export default async function PriceList() {
   try {
     const data = await getData(getPriceList, { cache: "no-store" });
     const priceList = data?.currentPriceLists2?.[0]?.priceList2;
-    console.log("PriceList:", priceList);
 
     // Jeśli brak cennika, nie renderuj
     if (!priceList || priceList.length === 0) {

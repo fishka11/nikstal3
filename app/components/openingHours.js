@@ -1,7 +1,6 @@
 import getData from "../lib/fetchAPI";
 import { getFirmData } from "../lib/queries";
 import { daysOfWeekPl } from "../lib/variables";
-import { v4 as uuidv4 } from "uuid";
 
 // Pomocnicza funkcja do tłumaczenia dni
 function translateDay(day) {

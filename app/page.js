@@ -1,6 +1,5 @@
 import ReactMarkdown from "react-markdown";
 import { notFound } from "next/navigation";
-import { v4 as uuidv4 } from "uuid";
 import CardWithIcon from "./components/cardWithIcon";
 import CardWithPic from "./components/cardWithPic";
 import Cover from "./components/cover";
