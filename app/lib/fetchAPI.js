@@ -3,11 +3,11 @@ import Bottleneck from "bottleneck";
 
 // Dokładnie 3 requesty na sekundę
 const limiter = new Bottleneck({
-  reservoir: 3, // Początkowy bucket: 3 requesty
-  reservoirRefreshAmount: 3, // Co sekundę dodaj 3 requesty
+  reservoir: 5, // Początkowy bucket: 5 requesty
+  reservoirRefreshAmount: 5, // Co sekundę dodaj 5 requesty
   reservoirRefreshInterval: 1000, // Co 1000ms
   maxConcurrent: 1, // Tylko 1 request naraz dla prostoty
-  minTime: 333, // Minimum 333ms między requestami
+  minTime: 200, // Minimum 200ms między requestami
 });
 
 export default async function getData(query, options = {}) {
