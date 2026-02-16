@@ -64,7 +64,9 @@ export default async function Page({ params }) {
       <h1 className="py-2 text-2xl font-light text-blue-900 md:text-3xl">
         {content?.title}
       </h1>
-      <p className="py-4 md:py-6 text-xl font-light">{content?.subtitle}</p>
+      {content?.subtitle && (
+        <p className="py-4 md:py-6 text-xl font-light">{content?.subtitle}</p>
+      )}
       {content.texts?.[0]?.subtitle && (
         <h2 className="mb-2 text-2xl font-light text-blue-800">
           {content.texts[0].subtitle}
