@@ -36,3 +36,9 @@ next-env.d.ts
 
 # custom
 materialy
+.eslintignore
+.eslintrc.json
+.gitignore
+.prettierignore
+package-lock.json
+prettierrc.js
